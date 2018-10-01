@@ -2,13 +2,13 @@
 public class Student
 	{
 		private String name;
-		private int phonenumber;
+		private String phonenumber;
 		private String address;
 		
-		public Student (String n, int p, String a){
-			n = name;
-			p = phonenumber;
-			a = address;
+		public Student (String n, String p, String a){
+			name = n;
+			phonenumber = p;
+			address = a;
 		}
 
 		public String getName()
@@ -21,12 +21,12 @@ public class Student
 				this.name = name;
 			}
 
-		public int getPhonenumber()
+		public String getPhonenumber()
 			{
 				return phonenumber;
 			}
 
-		public void setPhonenumber(int phonenumber)
+		public void setPhonenumber(String phonenumber)
 			{
 				this.phonenumber = phonenumber;
 			}
