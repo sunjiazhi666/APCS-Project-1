@@ -4,38 +4,50 @@ import java.util.Scanner;
 public class Ask
 	{
 		
-		public	static ArrayList<Student>name = new ArrayList<Student>();
+		
 		public static void main(String[] args)
 			{
 				
-				
+				boolean again = true;
 				//Ask user want to check or input the new name
-				
+				while(again){
 				System.out.println("Do you want to check or key in the information?");
+				System.out.println("If you wan to check press 1");
+				System.out.println("If you want to input press 2");
 				Scanner userinput1 = new Scanner(System.in);
 				String useranswer = userinput1.nextLine();
 				
 				
-				if(useranswer.equals("check")){
-					System.out.println("Do you wan to check the information or total students");
+				if(useranswer.equals("1")){
+					System.out.println("Do you want to check the information or total students");
+					System.out.println("If you want to check the information press 1");
+					System.out.println("If you want to check the total students press 2");
 					Scanner userinput2 = new Scanner(System.in);
 					String answer = userinput2.nextLine();
 					
-					if(answer.equals("total students")){
-						System.out.println(name.size());
+					if(answer.equals("2")){
+						System.out.println(DataBase.students.size());
 					}
+					
+					else if(answer.equals("1")){
+						System.out.println("Please follow the direction");
+						System.out.println("Please key in student's name");
+						Scanner userinput7 = new Scanner(System.in);
+						String studentname1 = userinput7.nextLine();
+					}
+							
 					
 					
 					
 				}
 				
 				//Key in the information
-				else if(useranswer.equals("key in")){
+				else if(useranswer.equals("2")){
 					System.out.println("Please follow the direction");
 					Scanner userinput6 = new Scanner(System.in);
 					
-					//Basic information(Name, address etc.)
-					if(userinput6.equals("basic information")){
+					
+					
 					
 					System.out.println("Please follow the direction");
 					System.out.println("1.What is your children's name?");
@@ -52,13 +64,14 @@ public class Ask
 					
 					// Put the information into the Array list
 					
-					name.add (new Student (nameinput,parentphonenumber,address));
+					DataBase.students.add (new Student (nameinput,parentphonenumber,address));
 					}
 					
-					
+					System.out.println("Do you want to do again?");
+					System.out.println();
 						
 						
-						
+				}
 						
 					}
 					
@@ -69,6 +82,6 @@ public class Ask
 				
 				
 
-			}
+			
 
 	
