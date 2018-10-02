@@ -7,14 +7,35 @@ public class Ask
 		
 		public static void main(String[] args)
 			{
+				DataBase.fillarray();
+				boolean restart = true;
+			
+				while(restart){
+				
+				System.out.println("welcome to use the Kenny's data base");
+				System.out.println("Please follow the direction");
+				System.out.println("Plesase set up a administrator password");
+				Scanner userinput12 = new Scanner(System.in);
+				String password = userinput12.nextLine();
+				System.out.println("Just in case, please set up a question for when you forget the password");
+				Scanner userinput13 = new Scanner(System.in);
+				String question = userinput13.nextLine();
+				System.out.println("nowm key in the answer for that question");
+				Scanner userinput14 = new Scanner(System.in);
+				String passwordanswer = userinput14.nextLine();
+				System.out.println("Good, you are ready to use the database");
+				
+				
 				
 				boolean again = true;
 				//Ask user want to check or input the new name
 				while(again){
 				System.out.println("key in student's information press 1");
 				System.out.println("check the total students press 2");
-				System.out.println("clean all the students press 3");
-				System.out.println("To remove the student from the list press 4");
+				System.out.println("clean all the students press 3");	
+				System.out.println("Show all the student press 4");
+				System.out.println("If you forget your administrator password press 5");
+				
 				Scanner userinput1 = new Scanner(System.in);
 				String useranswer = userinput1.nextLine();
 				
@@ -43,11 +64,34 @@ public class Ask
 				
 				//total students
 				else if(useranswer.equals("2")){
-						System.out.println(DataBase.students.size());
+				System.out.println("Only the administrator have the access to check this information");
+				System.out.println("Please key in the administrator password");
+				Scanner userinput15 = new Scanner(System.in);
+				String totaladmin = userinput15.nextLine();
+				if(totaladmin.equals(password)){
+					if(DataBase.students.size() == 1){
+						System.out.println("There is only one student in the database");
+					}
+					else{
+						System.out.println("There are " + DataBase.students.size() + " students in the database");
+					}
+				}
+				else{
+					System.out.println("Sorry, you don't have the access to this category");
+				}
+						
 					}
 					
 				//clean all the student
+				
 					else if(useranswer.equals("3")){
+						System.out.println("Only the administrator have the access to check this information");
+						System.out.println("Please key in the administrator password");
+						Scanner userinput16 = new Scanner(System.in);
+						String cleanadmin = userinput16.nextLine();
+						if(cleanadmin.equals(password)){
+							
+						
 						System.out.println("Are you sure to clean all the information?");
 						System.out.println("Type yes to deleat all the information");
 						Scanner userinput2 = new Scanner(System.in);
@@ -56,56 +100,61 @@ public class Ask
 						if(clean.equals("yes")) {
 						DataBase.students.clear();
 						System.out.println("The list is clean");
+						}
 						
+						else{
+							System.out.println("Sorry, you don't have the access to this category");
+						}
 					}
 					}
-						
-				//remove student
-						else if(useranswer.equals("4")) {
-							System.out.println("Please key in your student's name");
-							Scanner userinput8 = new Scanner(System.in);
-							String deleatname = userinput8.nextLine();
+
+				//Show all students
+				
+						else if(useranswer.equals("4")){
 							
-							System.out.println("Please key in your phonenumber");
-							Scanner userinput11 = new Scanner(System.in);
-							String deleatphone = userinput11.nextLine();
+							System.out.println("Only the administrator have the access to check this information");
+							System.out.println("Please key in the administrator password");
+							Scanner userinput17 = new Scanner(System.in);
+							String alladmin = userinput17.nextLine();
 							
-							System.out.println("Please key in your address");
-							Scanner userinput12 = new Scanner(System.in);
-							String deleataddress = userinput12.nextLine();
+							if(alladmin.equals(password)){
+							if(DataBase.students.size() > 0){
+							for(int i = 0 ; i < DataBase.students.size() ; i ++){
+								System.out.println("Name: " + DataBase.students.get(i).getName() + " " + "Phonenumber: " + DataBase.students.get(i).getPhonenumber() + " " + "Address: " + DataBase.students.get(i).getAddress());
+							}
+							}
+							else{
+								System.out.println("There is no student in the database");
+							}
 							
-							System.out.println("type yes to deleat this student's information");
-							Scanner userinput10 = new Scanner(System.in);
-							String deleat = userinput10.nextLine();
-							if(deleat.equals("yes")) {
-								DataBase.students.remove(deleatname);
+							
+							}
+							
+							else{
+								System.out.println("Sorry, you don't have the access to this category");
+							}
+						}
+				
+						else if(useranswer.equals("5")){
+							System.out.println("Please answer the following question to reset the password");
+							System.out.println(question);
+							Scanner userinput18 = new Scanner(System.in);
+							String answerquestion = userinput18.nextLine();
+							
+							if(answerquestion.equals(passwordanswer)){
+								System.out.println("Good, the answer is right");
+							}
+							
+							else{
+								System.out.println("Sorry, the answer is not right");
 							}
 							
 						}
 							
-					
+
 					
 					
 				
-				
-					
-					
-					//again
-					System.out.println("Do you want to key in some other information or check your child's information");
-					System.out.println("If you want to back to the start press 1, if you want to exit press 2");
-					Scanner userinput8 = new Scanner(System.in);
-					String again1 = userinput8.nextLine();
-					
-					if(again1.equals("1")) {
-						again = true;
-					}
-					
-					else if(again1.equals("2")) {
-						again = false;
-					}
-					
-					
-					
 					
 					
 						
@@ -113,7 +162,7 @@ public class Ask
 				}
 						
 					}
-					
+	}
 					
 					
 				}
