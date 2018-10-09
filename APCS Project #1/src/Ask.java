@@ -160,15 +160,20 @@ public class Ask
 										System.out.println("There is " + checkstudentname + "'s " + "information");
 										System.out.println("Name: " + DataBase.students.get(counter1).getName() + " " + "Phonenumber: " + DataBase.students.get(counter1).getPhonenumber() + " " + "Address: " + DataBase.students.get(counter1).getAddress() + " " + "Birthday: " + DataBase.students.get(counter1).getBirthday());
 									}
-									else if(!checkstudentname.equals(DataBase.students.get(counter1).getName())){
-										counter1 += 1;
-									}
-									else if(counter1 > DataBase.students.size()){
-										System.out.println("There is no " + checkstudentname + " in the system");
-									}
+									
+									
+									
+									else {
+										counter1++;
+										 if(counter1 >= DataBase.students.size()){
+												System.out.println("There is no " + checkstudentname + " in the system");
+												keepcheck = false;
+											}
 								}
-								
+								}
 							}
+								
+							
 					
 					//No4
 							else if(useranswer.equals("4")){
@@ -183,7 +188,7 @@ public class Ask
 										Scanner userinput22 = new Scanner(System.in);
 										String deleat = userinput22.nextLine();
 										if(deleat.equals("deleat"))
-										DataBase.students.remove(DataBase.students.get(counter2).getName() + DataBase.students.get(counter2).getAddress() + DataBase.students.get(counter2).getPhonenumber() + DataBase.students.get(counter2).getBirthday());
+										DataBase.students.remove(counter2);
 										removecheck = false;
 										System.out.println("Good, " + deleatname + " is already out of the system" );
 										
