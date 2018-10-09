@@ -4,11 +4,13 @@ public class Student
 		private String name;
 		private String phonenumber;
 		private String address;
+		private String birthday;
 		
-		public Student (String n, String p, String a){
+		public Student (String n, String p, String a, String b){
 			name = n;
 			phonenumber = p;
 			address = a;
+			birthday = b;
 		}
 
 		public String getName()
@@ -40,6 +42,16 @@ public class Student
 			{
 				this.address = address;
 			}
-		
-		
+
+		public String getBirthday()
+			{
+				return birthday;
+			}
+
+		public void setBirthday(String birthday)
+			{
+				this.birthday = birthday;
+			}
 	}
+
+		
