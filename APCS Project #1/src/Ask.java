@@ -59,7 +59,9 @@ public class Ask
 					DataBase.students.add (new Student (nameinput,parentphonenumber,address,birthdayinput));
 					System.out.println("Good, your child's information is already in the system");
 					}
-				
+			
+					
+					
 							else if(useranswer.equals("2")){
 							System.out.println("Please key in the administrator password. If you forget, please type forget");
 							Scanner userinput21 = new Scanner(System.in);
@@ -193,12 +195,13 @@ public class Ask
 										System.out.println("Good, " + deleatname + " is already out of the system" );
 										
 									}
-									else if(!deleatname.equals(DataBase.students.get(counter2).getName())){
+									else{
 										counter2 =+ 1;
+										if(counter2 >= DataBase.students.size()){
+											System.out.println("There is no " + deleatname + " in the system");
+										}
 									}
-									else if(counter2 > DataBase.students.size()){
-										System.out.println("There is no " + deleatname + " in the system");
-									}
+									 
 								}
 								
 							}
