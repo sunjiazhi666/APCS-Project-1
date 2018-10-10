@@ -125,7 +125,7 @@ public class Ask
 						System.out.println(question);
 						Scanner userinput18 = new Scanner(System.in);
 						String answerquestion = userinput18.nextLine();
-						
+						//
 						if(answerquestion.equals(passwordanswer)){
 							System.out.println("Good, the answer is right");
 							System.out.println("");
