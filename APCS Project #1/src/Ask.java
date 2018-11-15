@@ -1,6 +1,8 @@
 import java.util.ArrayList;
 
+
 import java.util.Scanner;
+
 
 public class Ask
 	{
@@ -11,7 +13,6 @@ public class Ask
 				DataBase.fillarray();
 				boolean restart = true;
 				while(restart){
-				
 			System.out.println("Welcome to Kenny's data base");
 			System.out.println("");
 			System.out.println("Please follow the direction");
@@ -29,13 +30,13 @@ public class Ask
 			System.out.println("Good, you are ready to use the database");	
 			boolean again = true;
 				
-				//Ask user want to check or input the new name
+		  	//Ask user want to check or input the new name
 				while(again){
 				System.out.println("");
 				System.out.println("Key in student's information press 1");
 				System.out.println("Go to administrator menu press 2");
 				System.out.println("Check your student's information press 3");
-				System.out.println("Deleat your student press 4");
+				System.out.println("Deleate your student press 4");
 				
 				Scanner userinput1 = new Scanner(System.in);
 				String useranswer = userinput1.nextLine();
@@ -148,6 +149,7 @@ public class Ask
 					}
 						
 					}
+					
 					//No 3
 							else if(useranswer.equals("3")){
 								System.out.println("What is your student's name");
@@ -186,23 +188,26 @@ public class Ask
 								int counter2 = 0;
 								while(removecheck){
 									if(deleatname.equals(DataBase.students.get(counter2).getName())){
-										System.out.println("The system already find this name, type deleat to deleat this student");
+										System.out.println("The system already find this name, type deleate to deleate this student");
 										Scanner userinput22 = new Scanner(System.in);
 										String deleat = userinput22.nextLine();
-										if(deleat.equals("deleat"))
+										if(deleat.equals("deleate")){
 										DataBase.students.remove(counter2);
 										removecheck = false;
 										System.out.println("Good, " + deleatname + " is already out of the system" );
-										
-									}
-									else{
-										counter2 =+ 1;
-										if(counter2 >= DataBase.students.size()){
-											System.out.println("There is no " + deleatname + " in the system");
 										}
 									}
+									else{
+										counter2++;
+										if(counter2 >= DataBase.students.size()){
+											System.out.println("There is no " + deleatname + " in the system");
+											removecheck = false;
+											
+										}
+										
+									}
 									 
-								}
+								
 								
 							}
 					
@@ -211,4 +216,5 @@ public class Ask
 				}
 						
 					}
+			}
 	}
